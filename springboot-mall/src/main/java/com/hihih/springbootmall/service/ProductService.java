@@ -1,8 +1,10 @@
 package com.hihih.springbootmall.service;
 
+import com.hihih.springbootmall.dto.ProductRequest;
 import com.hihih.springbootmall.model.Product;
 
 public interface ProductService {
 
     Product getProductById(Integer productId);
+    Integer createProduct(ProductRequest productRequest);
 }
