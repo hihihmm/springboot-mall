@@ -55,4 +55,12 @@ public class ProductController {
 
         return ResponseEntity.status(HttpStatus.OK).body(updateProduct);
     }
+
+    // 刪除商品的意義為「刪除」，前端只需知道商品消失即可(結果)，因此不須檢查ID是否存在
+    @DeleteMapping("/products/{productId}")
+    public ResponseEntity<?> deleteProduct(@PathVariable Integer productId){
+        productService.deleteProductById(productId);
+
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+    }
 }
