@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @RestController
 public class ProductController {
@@ -16,6 +17,15 @@ public class ProductController {
     @Autowired
     private ProductService productService;
 
+    // 不管 product 是否為 null，皆回傳 200 OK
+    @GetMapping("/products")
+    public ResponseEntity<List<Product>> getProducts(){
+        List<Product> prodcutList = productService.getProducts();
+
+        return ResponseEntity.status(HttpStatus.OK).body(prodcutList);
+    }
+
+    // RestFul 每個
     @GetMapping("/products/{productId}")
     public ResponseEntity<Product> getProduct(@PathVariable Integer productId){
         Product product = productService.getProductById(productId);
