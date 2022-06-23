@@ -1,5 +1,6 @@
 package com.hihih.springbootmall.controller;
 
+import com.hihih.springbootmall.constant.ProductCategory;
 import com.hihih.springbootmall.dto.ProductRequest;
 import com.hihih.springbootmall.model.Product;
 import com.hihih.springbootmall.service.ProductService;
@@ -19,8 +20,11 @@ public class ProductController {
 
     // 不管 product 是否為 null，皆回傳 200 OK
     @GetMapping("/products")
-    public ResponseEntity<List<Product>> getProducts(){
-        List<Product> prodcutList = productService.getProducts();
+    public ResponseEntity<List<Product>> getProducts(
+            @RequestParam(required = false) ProductCategory category,
+            @RequestParam(required = false) String search
+    ){
+        List<Product> prodcutList = productService.getProducts(category, search);
 
         return ResponseEntity.status(HttpStatus.OK).body(prodcutList);
     }
