@@ -1,11 +1,13 @@
 package com.hhihi.springbootmall.dto;
 
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 
 public class UserRegisterRequest {
 
     // 不可為null，也不可為空字串
     @NotBlank
+    @Email
     private String email;
 
     @NotBlank
