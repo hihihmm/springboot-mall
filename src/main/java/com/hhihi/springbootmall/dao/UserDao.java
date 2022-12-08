@@ -1,5 +1,6 @@
 package com.hhihi.springbootmall.dao;
 
+import com.hhihi.springbootmall.dto.UserLoginRequest;
 import com.hhihi.springbootmall.dto.UserRegisterRequest;
 import com.hhihi.springbootmall.model.User;
 
