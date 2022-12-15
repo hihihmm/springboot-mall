@@ -42,7 +42,7 @@ public class OrderController {
         page.setLimit(limit);
         page.setOffset(offset);
         page.setTotal(count);
-        page.setResult(orderList);
+        page.setResults(orderList);
 
         return ResponseEntity.status(HttpStatus.OK).body(page);
     }
